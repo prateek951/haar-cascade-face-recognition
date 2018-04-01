@@ -59,6 +59,7 @@ if ret==True:
         resized_face = cv2.resize(frame,(50,50)).flatten()
         cv2.putText(frame,text,(x,y),font,1,(255,255,0),2)
         cv2.rectangle(frame,(x,y),(x+w,y+h),(0,0,255),2)
+    
     cv2.imshow('Frame',frame)
 
     if cv2.waitKey(1) == 27:
@@ -68,5 +69,5 @@ else:
     print('Error')
     break
 
-cam.release()
+
 cv2.destroyAllWindows()
