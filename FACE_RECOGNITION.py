@@ -22,3 +22,30 @@ names = {
     1: 'Lorem',
     2: 'Sachin'
 }
+
+# @desc Define the KNN Functions
+
+# @desc Function to compute the euclidean distance
+
+def distance(x1,x2):
+    d = np.sqrt(((x1-x2)**2).sum())
+    return d 
+
+# @desc Function KNearestNeighbours
+
+def knn(X_train,Y_train,xt,k=5):
+    vals = []
+    for ix in range(X_train.shape[0]):
+        d = distance(X_train[ix],xt)
+        vals.append([d,Y_train[ix]])
+    sorted_labels = sorted(vals,key=lambda z: z[0])
+    neighbours = np.asarray(sorted_labels)[:k,-1]
+
+    freq = np.unique(neighbours,return_counts=True)
+
+    return freq[0][freq[1].argmax()]
+
+# @desc Face Detection Loop
+
+
+
